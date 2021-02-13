@@ -1,17 +1,14 @@
 {
-  "name": "node-2-project",
+  "name": "node-2-guided",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "reset": "rm -r node_modules/ ; rm package-lock.json ;",
     "server": "nodemon",
     "start": "node index.js",
-    "mig": "npx knex migrate:latest",
+    "migrate": "knex migrate:latest",
     "seed": "knex seed:run",
-    "commit": "git commit -m  $1",
-    "push": "git push origin Nicholas-Lacapria",
-    "rmdb": "rm -r database/auth.db3",
-    "remove": "rm -r node_modules ; rm package-lock.json; rm database/auth.db3;"
+    "ketchup": "git fetch && git reset --hard origin/lecture"
   },
   "author": "Lambda School",
   "dependencies": {
@@ -32,6 +29,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/extrude575757/node-auth2-project.git"
+    "url": "git+https://github.com/LambdaSchool/node-auth2-guided.git"
   }
 }
