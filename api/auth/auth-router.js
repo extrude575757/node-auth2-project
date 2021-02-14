@@ -26,7 +26,7 @@ router.post("/register", (req, res) => {
       });
   } else {
     res.status(400).json({
-      message: "please provide username and password and the password shoud be alphanumeric",
+      message: "please provide username and password and the password shoud be alphanumeric 400 post/register",
     });
   }
 });
@@ -47,7 +47,7 @@ router.post("/login", (req, res) => {
             subject: kn
           , token });
         } else {
-          res.status(401).json({ message: "Invalid credentials" });
+          res.status(401).json({ message: "Invalid credentials You shall not pass 401 /post/auth/login" });
         }
       })
       .catch(error => {
@@ -55,7 +55,7 @@ router.post("/login", (req, res) => {
       });
   } else {
     res.status(400).json({
-      message: "please provide username and password and the password shoud be alphanumeric",
+      message: "please provide username and password and the password shoud be alphanumeric /post/auth/login 400",
     });
   }
 });
