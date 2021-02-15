@@ -1,13 +1,18 @@
 import React from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
-class Login extends React.Component {
-  state = {
-    credentials: {
-      username: '',
-      password: ''
-    }
-  };
+class Register extends React.Component {
+  constructor(props){
+      super(props);
+      this.state = {
+        credentials: {
+          username: '',
+          department: '',
+          password: '',
+          role:''
+        }
+      };
+  }
 
   handleChange = e => {
     this.setState({
@@ -27,7 +32,7 @@ class Login extends React.Component {
   login = e => {
     e.preventDefault();
     // login to server
-    axiosWithAuth().post("http://localhost:8022/api/auth/login", this.state.credentials)
+    axiosWithAuth().post("http://localhost:8022/api/auth/register", this.state.credentials)
       .then(res => {
         console.log('bk: Login.js: login: res: ', res)
         localStorage.setItem('token', res.config.data)
@@ -40,7 +45,7 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div>Login as adminGuy: Useron Password: jahhhfhdwqi3hfh
+      <div>Register
         <form onSubmit={this.login}>
           <label for='username'>
             Username
@@ -49,6 +54,15 @@ class Login extends React.Component {
             type="text"
             name="username"
             value={this.state.credentials.username}
+            onChange={this.handleChange}
+          />
+          <label for='department'>
+              Department
+          </label>
+          <input 
+            type="text"
+            name="department"
+            value={this.state.credentials.department}
             onChange={this.handleChange}
           />
           <label for='password'>
@@ -60,11 +74,20 @@ class Login extends React.Component {
             value={this.state.credentials.password}
             onChange={this.handleChange}
           />
-          <button>Log in</button>
+          <label for='role'>
+              Role
+          </label>
+          <input 
+            type="text"
+            name="role"
+            value={this.state.credentials.role}
+            onChange={this.handleChange}
+          />
+          <button>Register</button>
         </form>
       </div>
     );
   }
 }
 
-export default Login;
+export default Register;

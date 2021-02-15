@@ -16,6 +16,7 @@ import "./styles.css";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Login from './components/Login.js';
+import Register from './components/Register.js'
 import PrivateRoute from './components/PrivateRoute';
 
 
@@ -42,8 +43,10 @@ function App() {
         <Heading />
         <Switch>
           <PrivateRoute exact path="/protected" component={AppComp} />
-          <Route path="/login" component={Login} />
-          <Route component={Login} />
+          <Route path="/login" component={Login} /> 
+          <Route path="/register" component={Register} /> 
+      
+      
         </Switch>
       </div>
     </Router>
