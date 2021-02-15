@@ -27,10 +27,10 @@ class Login extends React.Component {
   login = e => {
     e.preventDefault();
     // login to server
-    axiosWithAuth().post("http://localhost:5000/api/login", this.state.credentials)
+    axiosWithAuth().post("http://localhost:8043/api/auth/login", this.state.credentials)
       .then(res => {
         console.log('bk: Login.js: login: res: ', res)
-        localStorage.setItem('token', res.data.payload)
+        localStorage.setItem('token', res.config.data)
         this.props.history.push('/protected')
       })
       .catch(err => {
@@ -40,7 +40,7 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div>Login as Username: Useron Password: Demo
+      <div>Login as adminGuy: Useron Password: jahhhfhdwqi3hfh
         <form onSubmit={this.login}>
           <label for='username'>
             Username
